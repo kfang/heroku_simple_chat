@@ -9,9 +9,7 @@ import sdjango
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^backend/', include('backend.urls'), name='backend'),
 	url(r'^socket.io', include(sdjango.urls)),
-	# url(r'^socket.io/', include('backend.urls'), name='backend'),
 
     # Examples:
     # url(r'^$', 'simplecat.views.home', name='home'),

@@ -8,16 +8,6 @@ from backend.models import ChatNamespace
 
 SOCKETIO_NS = {'': ChatNamespace}
 
-
-class namespace(object):
-    def __init__(self, name=''):
-        self.name = name
-
-    def __call__(self, handler):
-        SOCKETIO_NS[self.name] = handler
-        return handler
-
-
 @csrf_exempt
 def socketio(request):
     try:
@@ -25,6 +15,5 @@ def socketio(request):
     except:
         logging.getLogger("socketio").error("Exception while handling socketio connection", exc_info=True)
     return HttpResponse("")
-
 
 urls = patterns("", (r'', socketio))
